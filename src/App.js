@@ -1,5 +1,8 @@
-import './App.css';
-import styled from 'styled-components';
+import "./App.css";
+import styled from "styled-components";
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import { Earth } from "./components/earth";
 
 const CanvasContainer = styled.div`
   width: 100%;
@@ -8,7 +11,13 @@ const CanvasContainer = styled.div`
 
 function App() {
   return (
-    <CanvasContainer>Hello three.js</CanvasContainer>
+    <CanvasContainer>
+      <Canvas>
+        <Suspense fallback={null}>
+          <Earth />
+        </Suspense>
+      </Canvas>
+    </CanvasContainer>
   );
 }
 
